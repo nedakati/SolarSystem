@@ -13,6 +13,8 @@ final class PlanetsViewController: UIViewController {
     // MARK: - Outlets
     
     @IBOutlet private weak var collectionView: UICollectionView!
+    
+    private let cellWidth: CGFloat = 250
 
     // MARK: - Private properties
     
@@ -26,13 +28,18 @@ final class PlanetsViewController: UIViewController {
         return viewController
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView.scrollToItem(at: IndexPath(row: viewModel.planetCellViewModels.count / 2, section: 0), at: .centeredHorizontally, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
     }
     
     private func setupView() {
-        collectionView.register(supplementaryViewType: FooterView.self, ofKind: UICollectionView.elementKindSectionFooter)
+        collectionView.register(cellType: PlanetCollectionViewCell.self)
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -41,23 +48,13 @@ final class PlanetsViewController: UIViewController {
 // MARK: - UICollectionViewDataSource
 
 extension PlanetsViewController: UICollectionViewDataSource {
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        0
-    }
     
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { viewModel.planetCellViewModels.count }
+        
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        switch kind {
-        case UICollectionView.elementKindSectionFooter:
-            let footerView: FooterView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, for: indexPath)
-            footerView.delegate = self
-            return footerView
-        default: fatalError("Unable to dequeue suplementary view")
-        }
+        let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: PlanetCollectionViewCell.self)
+        cell.viewModel = viewModel.planetCellViewModels[indexPath.row]
+        return cell
     }
 }
 
@@ -65,13 +62,8 @@ extension PlanetsViewController: UICollectionViewDataSource {
 
 extension PlanetsViewController: UICollectionViewDelegateFlowLayout {
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        let indexPath = IndexPath(row: 0, section: section)
-        let footerView = self.collectionView(collectionView, viewForSupplementaryElementOfKind: UICollectionView.elementKindSectionFooter, at: indexPath)
-
-        return footerView.systemLayoutSizeFitting(CGSize(width: collectionView.frame.width, height: UIView.layoutFittingCompressedSize.height),
-                                                  withHorizontalFittingPriority: .required,
-        verticalFittingPriority: .fittingSizeLevel)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+            CGSize(width: cellWidth, height: collectionView.bounds.size.height)
     }
 }
 

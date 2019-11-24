@@ -9,7 +9,16 @@
 import Foundation
 
 protocol PlanetsViewModel: class {
-    
+    var planetCellViewModels: [PlanetCollectionCellViewModel] { get }
 }
 
-final class PlanetsViewModelImpl: PlanetsViewModel {}
+final class PlanetsViewModelImpl: PlanetsViewModel {
+    
+    var planetCellViewModels: [PlanetCollectionCellViewModel] = []
+    
+    init() {
+        for planet in Planet.allCases {
+            planetCellViewModels.append(PlanetCollectionCellViewModelImpl(planet: planet))
+        }
+    }
+}
