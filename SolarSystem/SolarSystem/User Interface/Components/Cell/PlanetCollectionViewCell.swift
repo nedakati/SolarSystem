@@ -15,6 +15,14 @@ class PlanetCollectionViewCell: UICollectionViewCell, NibReusable {
     @IBOutlet weak var planeTitleLabel: UILabel!
     @IBOutlet weak var planetImageView: UIImageView!
     
+    var viewModel: PlanetCollectionCellViewModel? {
+        didSet {
+            guard let viewModel = viewModel else { return }
+            planeTitleLabel.text = viewModel.title
+            planetImageView.image = viewModel.image
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

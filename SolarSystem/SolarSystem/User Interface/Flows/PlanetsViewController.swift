@@ -30,7 +30,7 @@ final class PlanetsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        collectionView.scrollToItem(at: IndexPath(row: 2, section: 0), at: .centeredHorizontally, animated: true)
+        collectionView.scrollToItem(at: IndexPath(row: viewModel.planetCellViewModels.count / 2, section: 0), at: .centeredHorizontally, animated: true)
     }
     
     override func viewDidLoad() {
@@ -49,10 +49,11 @@ final class PlanetsViewController: UIViewController {
 
 extension PlanetsViewController: UICollectionViewDataSource {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { 4 }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { viewModel.planetCellViewModels.count }
         
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: PlanetCollectionViewCell.self)
+        cell.viewModel = viewModel.planetCellViewModels[indexPath.row]
         return cell
     }
 }

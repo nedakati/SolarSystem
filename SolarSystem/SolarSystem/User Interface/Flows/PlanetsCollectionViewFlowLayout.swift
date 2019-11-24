@@ -14,6 +14,6 @@ class PlanetsCollectionViewFlowLayout: UICollectionViewFlowLayout {
         super.init(coder: aDecoder)
         scrollDirection = .horizontal
         minimumLineSpacing = 20
-        sectionInsetReference = .fromSafeArea
+        sectionInsetReference = .fromLayoutMargins
     }
 }
