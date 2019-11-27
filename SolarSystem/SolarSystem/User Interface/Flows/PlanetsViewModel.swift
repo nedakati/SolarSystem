@@ -8,8 +8,17 @@
 
 import Foundation
 
-protocol PlanetsViewModel: class {
+protocol PlanetsFlowDelegate: AnyObject {
     
 }
 
-final class PlanetsViewModelImpl: PlanetsViewModel {}
+protocol PlanetsViewModel: class {
+    func didTapSattelitesView()
+}
+
+final class PlanetsViewModelImpl: PlanetsViewModel {
+    
+    func didTapSattelitesView() {
+        
+    }
+}

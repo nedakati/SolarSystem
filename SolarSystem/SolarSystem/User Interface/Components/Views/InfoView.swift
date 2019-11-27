@@ -45,11 +45,16 @@ final class InfoView: UIView, NibRepresentable {
     
     // MARK: - Lifecycle
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setupView()
     }
     
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupView()
+    }
+
     private func setupView() {
         loadNib()
         self.decorate(with: [CornerRadiusDecorator(radius: 10.0), BorderDecorator(borderWidth: 1.0, borderColor: .white)])

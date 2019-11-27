@@ -32,8 +32,7 @@ final class PlanetsViewController: UIViewController {
     }
     
     private func setupView() {
-        collectionView.register(supplementaryViewType: FooterView.self, ofKind: UICollectionView.elementKindSectionFooter)
-        collectionView.delegate = self
+        navigationController?.setNavigationBarHidden(true, animated: true)
         collectionView.dataSource = self
     }
 }
@@ -48,30 +47,6 @@ extension PlanetsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         return UICollectionViewCell()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        switch kind {
-        case UICollectionView.elementKindSectionFooter:
-            let footerView: FooterView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, for: indexPath)
-            footerView.delegate = self
-            return footerView
-        default: fatalError("Unable to dequeue suplementary view")
-        }
-    }
-}
-
-// MARK: - UICollectionViewDelegateFlowLayout
-
-extension PlanetsViewController: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        let indexPath = IndexPath(row: 0, section: section)
-        let footerView = self.collectionView(collectionView, viewForSupplementaryElementOfKind: UICollectionView.elementKindSectionFooter, at: indexPath)
-
-        return footerView.systemLayoutSizeFitting(CGSize(width: collectionView.frame.width, height: UIView.layoutFittingCompressedSize.height),
-                                                  withHorizontalFittingPriority: .required,
-        verticalFittingPriority: .fittingSizeLevel)
     }
 }
 
