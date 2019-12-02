@@ -13,15 +13,28 @@ class FlowController {
     // MARK: - Private properties
     
     private var navigationController: UINavigationController!
-    private let planetsViewController = PlanetsViewController.make(with: PlanetsViewModelImpl())
+    private var planetsViewController: PlanetsViewController?
     
     // MARK: - Lifecycle
     
     func start() {
-        navigationController = UINavigationController(rootViewController: planetsViewController!)
+        navigationController = UINavigationController(rootViewController: firstScreen() ?? UIViewController())
     }
     
     func rootViewController() -> UIViewController {
         return navigationController
+    }
+    
+    private func firstScreen() -> UIViewController? {
+        let planetsViewModel = PlanetsViewModelImpl()
+        planetsViewModel.flowDelegate = self
+        return PlanetsViewController.make(with: planetsViewModel)
+    }
+}
+
+extension FlowController: PlanetsFlowDelegate {
+    
+    func didTapSattelitesView() {
+        
     }
 }

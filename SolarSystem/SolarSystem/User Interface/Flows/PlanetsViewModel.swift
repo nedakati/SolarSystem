@@ -9,7 +9,7 @@
 import Foundation
 
 protocol PlanetsFlowDelegate: AnyObject {
-    
+    func didTapSattelitesView()
 }
 
 protocol PlanetsViewModel: class {
@@ -18,7 +18,9 @@ protocol PlanetsViewModel: class {
 
 final class PlanetsViewModelImpl: PlanetsViewModel {
     
+    weak var flowDelegate: PlanetsFlowDelegate?
+    
     func didTapSattelitesView() {
-        
+        flowDelegate?.didTapSattelitesView()
     }
 }

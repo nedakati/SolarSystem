@@ -55,6 +55,6 @@ extension PlanetsViewController: UICollectionViewDataSource {
 extension PlanetsViewController: FooterViewDelegate {
     
     func didTapSatelitesView(on view: FooterView) {
-        
+        viewModel.didTapSattelitesView()
     }
 }
