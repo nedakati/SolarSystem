@@ -41,6 +41,7 @@ final class PlanetsViewController: UIViewController {
     private func setupView() {
         collectionView.register(cellType: PlanetCollectionViewCell.self)
         collectionView.delegate = self
+        navigationController?.setNavigationBarHidden(true, animated: true)
         collectionView.dataSource = self
     }
 }
@@ -72,6 +73,6 @@ extension PlanetsViewController: UICollectionViewDelegateFlowLayout {
 extension PlanetsViewController: FooterViewDelegate {
     
     func didTapSatelitesView(on view: FooterView) {
-        
+        viewModel.didTapSattelitesView()
     }
 }

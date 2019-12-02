@@ -16,13 +16,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="d2p-a4-rVg">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                            </imageView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YFG-DQ-67G">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YFG-DQ-67G">
+                                <rect key="frame" x="0.0" y="44" width="414" height="572.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nkq-k0-30X" customClass="PlanetsCollectionViewFlowLayout" customModule="SolarSystem" customModuleProvider="target">
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nkq-k0-30X">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -39,17 +36,20 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6CV-b9-aqb" userLabel="Footer View" customClass="FooterView" customModule="SolarSystem" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="616.5" width="414" height="245.5"/>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.0" green="0.0053104219199999999" blue="0.55008724620000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="QdL-t1-HiM" firstAttribute="trailing" secondItem="YFG-DQ-67G" secondAttribute="trailing" id="1hT-RW-vtO"/>
-                            <constraint firstItem="QdL-t1-HiM" firstAttribute="bottom" secondItem="YFG-DQ-67G" secondAttribute="bottom" id="6zt-mc-wvL"/>
-                            <constraint firstItem="YFG-DQ-67G" firstAttribute="leading" secondItem="QdL-t1-HiM" secondAttribute="leading" id="8k2-Lw-ygi"/>
-                            <constraint firstAttribute="bottom" secondItem="d2p-a4-rVg" secondAttribute="bottom" id="PXf-Xk-ZJ1"/>
-                            <constraint firstItem="QdL-t1-HiM" firstAttribute="trailing" secondItem="d2p-a4-rVg" secondAttribute="trailing" id="ezz-qu-lqI"/>
-                            <constraint firstItem="d2p-a4-rVg" firstAttribute="top" secondItem="Crg-6j-9V4" secondAttribute="top" id="hzM-Tv-JJG"/>
-                            <constraint firstItem="YFG-DQ-67G" firstAttribute="top" secondItem="QdL-t1-HiM" secondAttribute="top" id="jX7-cV-VPy"/>
-                            <constraint firstItem="d2p-a4-rVg" firstAttribute="leading" secondItem="QdL-t1-HiM" secondAttribute="leading" id="uqr-Xv-1a9"/>
+                            <constraint firstItem="6CV-b9-aqb" firstAttribute="height" secondItem="QdL-t1-HiM" secondAttribute="height" multiplier="0.3" placeholder="YES" id="J1R-wK-0bo"/>
+                            <constraint firstItem="YFG-DQ-67G" firstAttribute="leading" secondItem="QdL-t1-HiM" secondAttribute="leading" id="Mww-Z3-LQy"/>
+                            <constraint firstItem="YFG-DQ-67G" firstAttribute="trailing" secondItem="QdL-t1-HiM" secondAttribute="trailing" id="f0e-2N-Edp"/>
+                            <constraint firstItem="YFG-DQ-67G" firstAttribute="top" secondItem="QdL-t1-HiM" secondAttribute="top" id="fQ5-jH-trE"/>
+                            <constraint firstItem="QdL-t1-HiM" firstAttribute="bottom" secondItem="6CV-b9-aqb" secondAttribute="bottom" id="lVp-oJ-Lvr"/>
+                            <constraint firstItem="6CV-b9-aqb" firstAttribute="leading" secondItem="QdL-t1-HiM" secondAttribute="leading" id="rI7-Bc-MmK"/>
+                            <constraint firstItem="QdL-t1-HiM" firstAttribute="trailing" secondItem="6CV-b9-aqb" secondAttribute="trailing" id="s2H-ct-DKN"/>
+                            <constraint firstItem="YFG-DQ-67G" firstAttribute="bottom" secondItem="6CV-b9-aqb" secondAttribute="top" id="t7A-T7-N8J"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QdL-t1-HiM"/>
                     </view>

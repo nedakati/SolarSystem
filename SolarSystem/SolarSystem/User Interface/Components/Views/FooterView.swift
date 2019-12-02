@@ -12,7 +12,7 @@ protocol FooterViewDelegate: AnyObject {
     func didTapSatelitesView(on view: FooterView)
 }
 
-final class FooterView: UICollectionReusableView, NibRepresentable {
+final class FooterView: UIView, NibRepresentable {
     
     // MARK: - Outlets
     
@@ -27,15 +27,22 @@ final class FooterView: UICollectionReusableView, NibRepresentable {
     
     // MARK: - Lifecycle
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupView()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
         setupView()
     }
     
     private func setupView() {
-        moreDataButton.decorate(with: [BorderDecorator(borderWidth: 2.0, borderColor: .white), CornerRadiusDecorator(radius: 10.0)])
+        loadNib()
+
+        moreDataButton.decorate(with: [BorderDecorator(borderWidth: 1.0, borderColor: .white), CornerRadiusDecorator(radius: 10.0)])
         moreDataButton.setTitle("More Data", for: .normal)
+        moreDataButton.setTitleColor(.lightGray, for: .normal)
         
         axisRotationView.title = "Complete axis rotation"
         axisRotationView.bottomDetailText = "hours"
@@ -50,12 +57,19 @@ final class FooterView: UICollectionReusableView, NibRepresentable {
         satelitesView.isUserInteractionEnabled = true
         satelitesView.title = "Number of sattelites"
         satelitesView.numberText = "2"
+        satelitesView.topDetailText = ""
+        satelitesView.bottomDetailText = ""
         satelitesView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(satelitesViewTouched)))
     }
     
     // MARK: - Callbacks
     
     @objc private func satelitesViewTouched() {
-        delegate?.didTapSatelitesView(on: self)
+        UIView.animate(withDuration: 0.33, animations: {
+            self.satelitesView.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        }, completion: { _ in
+            self.satelitesView.transform = .identity
+            self.delegate?.didTapSatelitesView(on: self)
+        })
     }
 }
