@@ -13,7 +13,6 @@
 		A93185DC238447D20089F633 /* PlanetCollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93185DB238447D20089F633 /* PlanetCollectionCellViewModel.swift */; };
 		A9DAF0CD23843E9900185C50 /* PlanetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DAF0CB23843E9900185C50 /* PlanetCollectionViewCell.swift */; };
 		A9E117C62372C43B00DB2A7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E117C52372C43B00DB2A7A /* AppDelegate.swift */; };
-		A9E117CA2372C43B00DB2A7A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E117C92372C43B00DB2A7A /* ViewController.swift */; };
 		A9E117CD2372C43B00DB2A7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E117CB2372C43B00DB2A7A /* Main.storyboard */; };
 		A9E117CF2372C43D00DB2A7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9E117CE2372C43D00DB2A7A /* Assets.xcassets */; };
 		A9E117D22372C43D00DB2A7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E117D02372C43D00DB2A7A /* LaunchScreen.storyboard */; };
@@ -25,11 +24,13 @@
 		FD06C1622375B02C0089F7CC /* CornerRadiusDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD06C1612375B02C0089F7CC /* CornerRadiusDecorator.swift */; };
 		FD06C1642375B1CB0089F7CC /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD06C1632375B1CB0089F7CC /* Reusable.swift */; };
 		FD06C1662375B1E60089F7CC /* UICollectionView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD06C1652375B1E60089F7CC /* UICollectionView+Reusable.swift */; };
+		FD0CD6E72384334A005F8958 /* PlanetDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD0CD6E62384334A005F8958 /* PlanetDetailViewController.storyboard */; };
 		FDF06F55237939370055FE78 /* FooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDF06F54237939370055FE78 /* FooterView.xib */; };
 		FDF06F5723793A250055FE78 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF06F5623793A250055FE78 /* FooterView.swift */; };
 		FDF06F5A23793D820055FE78 /* PlanetsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDF06F5923793D820055FE78 /* PlanetsViewController.storyboard */; };
 		FDF06F5C23793DC30055FE78 /* PlanetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF06F5B23793DC30055FE78 /* PlanetsViewController.swift */; };
 		FDF06F5E23793E5F0055FE78 /* PlanetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF06F5D23793E5F0055FE78 /* PlanetsViewModel.swift */; };
+		FDFAA296238447A1003F86B7 /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFAA295238447A1003F86B7 /* FlowController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +41,6 @@
 		A9DAF0CB23843E9900185C50 /* PlanetCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanetCollectionViewCell.swift; sourceTree = "<group>"; };
 		A9E117C22372C43B00DB2A7A /* SolarSystem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SolarSystem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9E117C52372C43B00DB2A7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A9E117C92372C43B00DB2A7A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A9E117CC2372C43B00DB2A7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A9E117CE2372C43D00DB2A7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9E117D12372C43D00DB2A7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -53,11 +53,13 @@
 		FD06C1612375B02C0089F7CC /* CornerRadiusDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadiusDecorator.swift; sourceTree = "<group>"; };
 		FD06C1632375B1CB0089F7CC /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		FD06C1652375B1E60089F7CC /* UICollectionView+Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Reusable.swift"; sourceTree = "<group>"; };
+		FD0CD6E62384334A005F8958 /* PlanetDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlanetDetailViewController.storyboard; sourceTree = "<group>"; };
 		FDF06F54237939370055FE78 /* FooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterView.xib; sourceTree = "<group>"; };
 		FDF06F5623793A250055FE78 /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
 		FDF06F5923793D820055FE78 /* PlanetsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlanetsViewController.storyboard; sourceTree = "<group>"; };
 		FDF06F5B23793DC30055FE78 /* PlanetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsViewController.swift; sourceTree = "<group>"; };
 		FDF06F5D23793E5F0055FE78 /* PlanetsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsViewModel.swift; sourceTree = "<group>"; };
+		FDFAA295238447A1003F86B7 /* FlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +115,6 @@
 				FD06C1592375AEE60089F7CC /* Extensions */,
 				FD06C14F2375ACD50089F7CC /* User Interface */,
 				A9E117C52372C43B00DB2A7A /* AppDelegate.swift */,
-				A9E117C92372C43B00DB2A7A /* ViewController.swift */,
 				A9E117CB2372C43B00DB2A7A /* Main.storyboard */,
 				A9E117CE2372C43D00DB2A7A /* Assets.xcassets */,
 				A9E117D02372C43D00DB2A7A /* LaunchScreen.storyboard */,
@@ -171,13 +172,23 @@
 			path = Decorator;
 			sourceTree = "<group>";
 		};
+		FD0CD6E523843307005F8958 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				FD0CD6E62384334A005F8958 /* PlanetDetailViewController.storyboard */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		FDF06F5823793CE40055FE78 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				FD0CD6E523843307005F8958 /* Detail */,
 				FDF06F5923793D820055FE78 /* PlanetsViewController.storyboard */,
 				FDF06F5B23793DC30055FE78 /* PlanetsViewController.swift */,
 				FDF06F5D23793E5F0055FE78 /* PlanetsViewModel.swift */,
 				A93185D6238441570089F633 /* PlanetsCollectionViewFlowLayout.swift */,
+				FDFAA295238447A1003F86B7 /* FlowController.swift */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -245,6 +256,7 @@
 				A9E117D22372C43D00DB2A7A /* LaunchScreen.storyboard in Resources */,
 				A9E117CF2372C43D00DB2A7A /* Assets.xcassets in Resources */,
 				FDF06F55237939370055FE78 /* FooterView.xib in Resources */,
+				FD0CD6E72384334A005F8958 /* PlanetDetailViewController.storyboard in Resources */,
 				FDF06F5A23793D820055FE78 /* PlanetsViewController.storyboard in Resources */,
 				A9E117CD2372C43B00DB2A7A /* Main.storyboard in Resources */,
 			);
@@ -259,7 +271,6 @@
 			files = (
 				FD06C1582375AEBE0089F7CC /* InfoView.swift in Sources */,
 				FD06C1662375B1E60089F7CC /* UICollectionView+Reusable.swift in Sources */,
-				A9E117CA2372C43B00DB2A7A /* ViewController.swift in Sources */,
 				FDF06F5E23793E5F0055FE78 /* PlanetsViewModel.swift in Sources */,
 				FD06C1622375B02C0089F7CC /* CornerRadiusDecorator.swift in Sources */,
 				FD06C1642375B1CB0089F7CC /* Reusable.swift in Sources */,
@@ -273,6 +284,7 @@
 				A9DAF0CD23843E9900185C50 /* PlanetCollectionViewCell.swift in Sources */,
 				FD06C1602375B0070089F7CC /* BorderDecorator.swift in Sources */,
 				FD06C15B2375AEF80089F7CC /* UIView+Nib.swift in Sources */,
+				FDFAA296238447A1003F86B7 /* FlowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

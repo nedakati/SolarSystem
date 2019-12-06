@@ -12,15 +12,16 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    
-    var viewController: PlanetsViewController?
+    var flow: FlowController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        let flow = FlowController()
+        flow.start()
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        viewController = PlanetsViewController.make(with: PlanetsViewModelImpl())
-        window?.rootViewController = viewController
+        window?.rootViewController = flow.rootViewController()
         return true
     }
 }
