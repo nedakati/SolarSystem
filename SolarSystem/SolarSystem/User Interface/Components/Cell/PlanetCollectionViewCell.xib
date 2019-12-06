@@ -40,6 +40,8 @@
             </collectionViewCellContentView>
             <size key="customSize" width="378" height="393"/>
             <connections>
+                <outlet property="imageViewHeightConstraint" destination="T8e-mV-5Fj" id="gF8-V3-G15"/>
+                <outlet property="imageViewWidthConstraint" destination="aJ3-3a-umH" id="iip-Fw-spo"/>
                 <outlet property="planeTitleLabel" destination="21Z-JJ-Gez" id="bLk-hV-5Z0"/>
                 <outlet property="planetImageView" destination="amY-1O-zWd" id="uj6-yp-0Kk"/>
             </connections>

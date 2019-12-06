@@ -13,7 +13,8 @@ class PlanetsCollectionViewFlowLayout: UICollectionViewFlowLayout {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         scrollDirection = .horizontal
-        minimumLineSpacing = 20
+        minimumLineSpacing = 0
         sectionInsetReference = .fromLayoutMargins
+        sectionInset = UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 70)
     }
 }

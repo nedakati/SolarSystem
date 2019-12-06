@@ -15,6 +15,10 @@ class PlanetCollectionViewCell: UICollectionViewCell, NibReusable {
     @IBOutlet weak var planeTitleLabel: UILabel!
     @IBOutlet weak var planetImageView: UIImageView!
     
+    @IBOutlet weak var imageViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var imageViewWidthConstraint: NSLayoutConstraint!
+    
+    
     var viewModel: PlanetCollectionCellViewModel? {
         didSet {
             guard let viewModel = viewModel else { return }
@@ -25,6 +29,14 @@ class PlanetCollectionViewCell: UICollectionViewCell, NibReusable {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        planetImageView.alpha = 0.5
+        imageViewWidthConstraint.constant = 200
+        imageViewHeightConstraint.constant = 200
     }
     
+    func changeAlpha(_ alpha: CGFloat) {
+        planetImageView.alpha = alpha
+        imageViewWidthConstraint.constant = alpha == 1 ? 250 : 200
+        imageViewHeightConstraint.constant = alpha == 1 ? 250 : 200
+    }
 }
