@@ -42,9 +42,10 @@ final class PlanetsViewController: UIViewController {
     }
     
     private func setupView() {
+        navigationController?.setNavigationBarHidden(true, animated: true)
+
         collectionView.register(cellType: PlanetCollectionViewCell.self)
         collectionView.delegate = self
-        navigationController?.setNavigationBarHidden(true, animated: true)
         collectionView.dataSource = self
     }
     
@@ -59,7 +60,8 @@ final class PlanetsViewController: UIViewController {
 
 extension PlanetsViewController: UICollectionViewDataSource {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { viewModel.planetCellViewModels.count }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        viewModel.planetCellViewModels.count }
         
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: PlanetCollectionViewCell.self)
@@ -112,7 +114,7 @@ extension PlanetsViewController: UICollectionViewDelegate {
         for ind in 0..<collectionView.numberOfItems(inSection: 0) {
             let cell = collectionView.cellForItem(at: IndexPath(row: ind, section: 0)) as? PlanetCollectionViewCell
             if cell != selectedCell {
-                cell?.changeAlpha(0.5)
+                cell?.changeAlpha(0.7)
             }
         }
     }

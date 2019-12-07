@@ -14,7 +14,6 @@ class PlanetCollectionViewCell: UICollectionViewCell, NibReusable {
     
     @IBOutlet weak var planeTitleLabel: UILabel!
     @IBOutlet weak var planetImageView: UIImageView!
-    
     @IBOutlet weak var imageViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var imageViewWidthConstraint: NSLayoutConstraint!
     
@@ -29,7 +28,7 @@ class PlanetCollectionViewCell: UICollectionViewCell, NibReusable {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        planetImageView.alpha = 0.5
+        planetImageView.alpha = 0.7
         imageViewWidthConstraint.constant = 200
         imageViewHeightConstraint.constant = 200
     }

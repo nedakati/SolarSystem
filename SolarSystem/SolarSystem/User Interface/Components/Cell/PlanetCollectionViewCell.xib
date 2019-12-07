@@ -10,14 +10,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gyZ-Kt-KcI" customClass="PlanetCollectionViewCell" customModule="SolarSystem" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="378" height="393"/>
+            <rect key="frame" x="0.0" y="0.0" width="486" height="505"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Yf1-LK-v6l">
-                <rect key="frame" x="0.0" y="0.0" width="378" height="393"/>
+                <rect key="frame" x="0.0" y="0.0" width="486" height="505"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="amY-1O-zWd">
-                        <rect key="frame" x="64" y="119" width="250" height="250"/>
+                        <rect key="frame" x="118" y="127.5" width="250" height="250"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="250" id="T8e-mV-5Fj"/>
@@ -25,27 +25,29 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21Z-JJ-Gez">
-                        <rect key="frame" x="156" y="61.5" width="66.5" height="33.5"/>
+                        <rect key="frame" x="210" y="54" width="66.5" height="33.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="amY-1O-zWd" firstAttribute="top" secondItem="21Z-JJ-Gez" secondAttribute="bottom" constant="24" id="4iU-Vh-FKe"/>
-                    <constraint firstAttribute="bottom" secondItem="amY-1O-zWd" secondAttribute="bottom" constant="24" id="c1e-mY-iUb"/>
+                    <constraint firstItem="amY-1O-zWd" firstAttribute="top" secondItem="21Z-JJ-Gez" secondAttribute="bottom" constant="40" id="4iU-Vh-FKe"/>
+                    <constraint firstItem="amY-1O-zWd" firstAttribute="centerX" secondItem="Yf1-LK-v6l" secondAttribute="centerX" id="LrD-3I-hEr"/>
                     <constraint firstItem="21Z-JJ-Gez" firstAttribute="centerX" secondItem="Yf1-LK-v6l" secondAttribute="centerX" id="khZ-ZK-4wi"/>
                     <constraint firstItem="amY-1O-zWd" firstAttribute="centerX" secondItem="Yf1-LK-v6l" secondAttribute="centerX" id="pIH-BS-5qr"/>
+                    <constraint firstItem="amY-1O-zWd" firstAttribute="centerY" secondItem="Yf1-LK-v6l" secondAttribute="centerY" id="q2H-UY-haB"/>
                 </constraints>
             </collectionViewCellContentView>
-            <size key="customSize" width="378" height="393"/>
+            <size key="customSize" width="486" height="505"/>
             <connections>
                 <outlet property="imageViewHeightConstraint" destination="T8e-mV-5Fj" id="gF8-V3-G15"/>
                 <outlet property="imageViewWidthConstraint" destination="aJ3-3a-umH" id="iip-Fw-spo"/>
                 <outlet property="planeTitleLabel" destination="21Z-JJ-Gez" id="bLk-hV-5Z0"/>
                 <outlet property="planetImageView" destination="amY-1O-zWd" id="uj6-yp-0Kk"/>
             </connections>
-            <point key="canvasLocation" x="91" y="91"/>
+            <point key="canvasLocation" x="168.11594202898553" y="128.23660714285714"/>
         </collectionViewCell>
     </objects>
 </document>
