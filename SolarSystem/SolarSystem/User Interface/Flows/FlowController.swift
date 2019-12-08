@@ -34,7 +34,10 @@ class FlowController {
 
 extension FlowController: PlanetsFlowDelegate {
     
-    func didTapSattelitesView() {
-        
+    func didTapSattelitesView(on planet: Planet) {
+        let viewModel = PlanetDetailViewModelImpl(planet: planet)
+        guard let viewController = PlanetDetailViewController.make(viewModel: viewModel) else { return }
+        viewController.modalPresentationStyle = .fullScreen
+        navigationController.present(viewController, animated: true, completion: nil)
     }
 }

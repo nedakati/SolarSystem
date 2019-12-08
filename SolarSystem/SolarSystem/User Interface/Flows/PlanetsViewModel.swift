@@ -9,12 +9,12 @@
 import Foundation
 
 protocol PlanetsFlowDelegate: AnyObject {
-    func didTapSattelitesView()
+    func didTapSattelitesView(on planet: Planet)
 }
 
 protocol PlanetsViewModel: class {
     var planetCellViewModels: [PlanetCollectionCellViewModel] { get }
-    func didTapSattelitesView()
+    func didTapSattelitesView(at index: Int)
 }
 
 final class PlanetsViewModelImpl: PlanetsViewModel {
@@ -28,7 +28,7 @@ final class PlanetsViewModelImpl: PlanetsViewModel {
         }
     }
 
-    func didTapSattelitesView() {
-        flowDelegate?.didTapSattelitesView()
+    func didTapSattelitesView(at index: Int) {
+        flowDelegate?.didTapSattelitesView(on: Planet.allCases[index])
     }
 }

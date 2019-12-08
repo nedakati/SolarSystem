@@ -19,7 +19,6 @@ final class FooterView: UIView, NibRepresentable {
     @IBOutlet private weak var axisRotationView: InfoView!
     @IBOutlet private weak var atmosphereView: InfoView!
     @IBOutlet private weak var satelitesView: InfoView!
-    @IBOutlet private weak var moreDataButton: UIButton!
     
     // MARK: - Public properties
     
@@ -40,10 +39,6 @@ final class FooterView: UIView, NibRepresentable {
     private func setupView() {
         loadNib()
 
-        moreDataButton.decorate(with: [BorderDecorator(borderWidth: 1.0, borderColor: .white), CornerRadiusDecorator(radius: 10.0)])
-        moreDataButton.setTitle("More Data", for: .normal)
-        moreDataButton.setTitleColor(.lightGray, for: .normal)
-        
         axisRotationView.title = "Complete axis rotation"
         axisRotationView.bottomDetailText = "hours"
         axisRotationView.numberText = "24"

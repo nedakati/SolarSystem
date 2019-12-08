@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,7 +11,6 @@
             <connections>
                 <outlet property="atmosphereView" destination="abn-1Z-Gwx" id="vKL-kI-i88"/>
                 <outlet property="axisRotationView" destination="69d-Vd-DGk" id="BvC-d6-caS"/>
-                <outlet property="moreDataButton" destination="6I2-HV-2X8" id="Ui6-C8-iED"/>
                 <outlet property="satelitesView" destination="LMw-EQ-yEV" id="gtr-l5-tdE"/>
             </connections>
         </placeholder>
@@ -21,39 +20,29 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="M5g-El-10C">
-                    <rect key="frame" x="24" y="0.0" width="443" height="217"/>
+                    <rect key="frame" x="24" y="0.0" width="443" height="289"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="69d-Vd-DGk" customClass="InfoView" customModule="SolarSystem" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="137" height="217"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <rect key="frame" x="0.0" y="0.0" width="137" height="289"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="abn-1Z-Gwx" customClass="InfoView" customModule="SolarSystem" customModuleProvider="target">
-                            <rect key="frame" x="153" y="0.0" width="137" height="217"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <rect key="frame" x="153" y="0.0" width="137" height="289"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LMw-EQ-yEV" customClass="InfoView" customModule="SolarSystem" customModuleProvider="target">
-                            <rect key="frame" x="306" y="0.0" width="137" height="217"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <rect key="frame" x="306" y="0.0" width="137" height="289"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                     </subviews>
                 </stackView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6I2-HV-2X8">
-                    <rect key="frame" x="122.66666666666667" y="249" width="245.66666666666663" height="40"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="W4t-Fe-PeB"/>
-                    </constraints>
-                    <state key="normal" title="Button"/>
-                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="6I2-HV-2X8" secondAttribute="bottom" constant="32" id="6rr-bU-KmI"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="M5g-El-10C" secondAttribute="bottom" constant="32" id="6Mk-kl-uCO"/>
                 <constraint firstItem="M5g-El-10C" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="E00-Bn-ES5"/>
                 <constraint firstItem="M5g-El-10C" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="IDh-ym-Qk9"/>
-                <constraint firstItem="6I2-HV-2X8" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Kog-Nt-LCC"/>
-                <constraint firstItem="6I2-HV-2X8" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" id="chg-DU-RvQ"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="M5g-El-10C" secondAttribute="trailing" constant="24" id="hW5-73-vbk"/>
-                <constraint firstItem="6I2-HV-2X8" firstAttribute="top" secondItem="M5g-El-10C" secondAttribute="bottom" constant="32" id="nMf-1h-7QW"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

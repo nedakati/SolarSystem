@@ -13,10 +13,10 @@ final class PlanetsViewController: UIViewController {
     // MARK: - Outlets
     
     @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet weak var footerView: FooterView!
     
     private let cellWidth: CGFloat = 250
     private var indexOfCellBeforeDragging = 0
-    
     // MARK: - Private properties
     
     private var viewModel: PlanetsViewModel!
@@ -47,6 +47,8 @@ final class PlanetsViewController: UIViewController {
         collectionView.register(cellType: PlanetCollectionViewCell.self)
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        footerView.delegate = self
     }
     
     private func indexOfMajorCell() -> Int {
@@ -134,6 +136,7 @@ extension PlanetsViewController: UICollectionViewDelegateFlowLayout {
 extension PlanetsViewController: FooterViewDelegate {
     
     func didTapSatelitesView(on view: FooterView) {
-        viewModel.didTapSattelitesView()
+        let index = indexOfMajorCell()
+        viewModel.didTapSattelitesView(at: index)
     }
 }
