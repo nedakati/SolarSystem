@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A9284F30239C09E7000480A4 /* PlanetDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9284F2F239C09E7000480A4 /* PlanetDetailViewModel.swift */; };
+		A9284F32239C0A66000480A4 /* PlanetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9284F31239C0A66000480A4 /* PlanetDetailViewController.swift */; };
+		A9284F34239D178E000480A4 /* SatteliteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9284F33239D178E000480A4 /* SatteliteView.xib */; };
+		A9284F36239D1954000480A4 /* SatteliteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9284F35239D1954000480A4 /* SatteliteView.swift */; };
 		A93185D523843F8A0089F633 /* PlanetCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A93185D423843F890089F633 /* PlanetCollectionViewCell.xib */; };
 		A93185D7238441580089F633 /* PlanetsCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93185D6238441570089F633 /* PlanetsCollectionViewFlowLayout.swift */; };
 		A93185DA238446D50089F633 /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93185D9238446D50089F633 /* Planet.swift */; };
@@ -34,6 +38,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A9284F2F239C09E7000480A4 /* PlanetDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetDetailViewModel.swift; sourceTree = "<group>"; };
+		A9284F31239C0A66000480A4 /* PlanetDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetDetailViewController.swift; sourceTree = "<group>"; };
+		A9284F33239D178E000480A4 /* SatteliteView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SatteliteView.xib; sourceTree = "<group>"; };
+		A9284F35239D1954000480A4 /* SatteliteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SatteliteView.swift; sourceTree = "<group>"; };
 		A93185D423843F890089F633 /* PlanetCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanetCollectionViewCell.xib; sourceTree = "<group>"; };
 		A93185D6238441570089F633 /* PlanetsCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		A93185D9238446D50089F633 /* Planet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
@@ -148,6 +156,8 @@
 				FD06C1572375AEBE0089F7CC /* InfoView.swift */,
 				FDF06F54237939370055FE78 /* FooterView.xib */,
 				FDF06F5623793A250055FE78 /* FooterView.swift */,
+				A9284F33239D178E000480A4 /* SatteliteView.xib */,
+				A9284F35239D1954000480A4 /* SatteliteView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -176,6 +186,8 @@
 			isa = PBXGroup;
 			children = (
 				FD0CD6E62384334A005F8958 /* PlanetDetailViewController.storyboard */,
+				A9284F2F239C09E7000480A4 /* PlanetDetailViewModel.swift */,
+				A9284F31239C0A66000480A4 /* PlanetDetailViewController.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -251,6 +263,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9284F34239D178E000480A4 /* SatteliteView.xib in Resources */,
 				FD06C1562375AD620089F7CC /* InfoView.xib in Resources */,
 				A93185D523843F8A0089F633 /* PlanetCollectionViewCell.xib in Resources */,
 				A9E117D22372C43D00DB2A7A /* LaunchScreen.storyboard in Resources */,
@@ -279,11 +292,14 @@
 				A93185D7238441580089F633 /* PlanetsCollectionViewFlowLayout.swift in Sources */,
 				A93185DA238446D50089F633 /* Planet.swift in Sources */,
 				A93185DC238447D20089F633 /* PlanetCollectionCellViewModel.swift in Sources */,
+				A9284F32239C0A66000480A4 /* PlanetDetailViewController.swift in Sources */,
 				A9E117C62372C43B00DB2A7A /* AppDelegate.swift in Sources */,
 				FDF06F5C23793DC30055FE78 /* PlanetsViewController.swift in Sources */,
 				A9DAF0CD23843E9900185C50 /* PlanetCollectionViewCell.swift in Sources */,
 				FD06C1602375B0070089F7CC /* BorderDecorator.swift in Sources */,
+				A9284F30239C09E7000480A4 /* PlanetDetailViewModel.swift in Sources */,
 				FD06C15B2375AEF80089F7CC /* UIView+Nib.swift in Sources */,
+				A9284F36239D1954000480A4 /* SatteliteView.swift in Sources */,
 				FDFAA296238447A1003F86B7 /* FlowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
