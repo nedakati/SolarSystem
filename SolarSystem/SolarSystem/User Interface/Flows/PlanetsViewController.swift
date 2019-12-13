@@ -16,7 +16,9 @@ final class PlanetsViewController: UIViewController {
     @IBOutlet weak var footerView: FooterView!
     
     private let cellWidth: CGFloat = 250
-    private var indexOfCellBeforeDragging = 0
+    private var selectedCellIndexPath: IndexPath = IndexPath(row: 0, section: 0)
+    private var didLoad = false
+    
     // MARK: - Private properties
     
     private var viewModel: PlanetsViewModel!
@@ -32,13 +34,14 @@ final class PlanetsViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         let centerIndexPath = IndexPath(row: viewModel.planetCellViewModels.count / 2, section: 0)
+        selectedCellIndexPath = centerIndexPath
         collectionView.scrollToItem(at: centerIndexPath, at: .centeredHorizontally, animated: true)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        indexOfCellBeforeDragging = viewModel.planetCellViewModels.count / 2
+        
     }
     
     private func setupView() {
@@ -64,8 +67,9 @@ extension PlanetsViewController: UICollectionViewDataSource {
         cell.viewModel = viewModel.planetCellViewModels[indexPath.row]
         let centerIndexPath = IndexPath(row: viewModel.planetCellViewModels.count / 2, section: 0)
 
-        if indexPath == centerIndexPath {
+        if !didLoad && indexPath == centerIndexPath {
             cell.changeAlpha(1)
+            didLoad.toggle()
         }
         
         return cell
@@ -81,6 +85,7 @@ extension PlanetsViewController: UICollectionViewDelegate {
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         let selectedCell = collectionView.cellForItem(at: indexPath) as? PlanetCollectionViewCell
         selectedCell?.changeAlpha(1)
+        selectedCellIndexPath = indexPath
     
         for ind in 0..<collectionView.numberOfItems(inSection: 0) {
             let cell = collectionView.cellForItem(at: IndexPath(row: ind, section: 0)) as? PlanetCollectionViewCell
@@ -105,7 +110,6 @@ extension PlanetsViewController: UICollectionViewDelegateFlowLayout {
 extension PlanetsViewController: FooterViewDelegate {
     
     func didTapSatelitesView(on view: FooterView) {
-        let index = indexOfMajorCell()
-        viewModel.didTapSattelitesView(at: index)
+        viewModel.didTapSattelitesView(at: selectedCellIndexPath.row)
     }
 }
