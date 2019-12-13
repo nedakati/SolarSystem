@@ -12,22 +12,17 @@ class PlanetDetailViewController: UIViewController {
 
     // MARK: - Outlets
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var closeButton: UIButton!
-    @IBOutlet weak var rankinNumberLabel: UILabel!
-    @IBOutlet weak var rankingNumberLabel: UILabel!
-    @IBOutlet weak var thLabel: UILabel!
-    @IBOutlet weak var followedByLabel: UILabel!
-    @IBOutlet weak var followedByPlanetLabel: UILabel!
-    
-    
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var closeButton: UIButton!
+    @IBOutlet private weak var rankView: RankView!
+
     private var viewModel: PlanetDetailViewModel!
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureUI()
+        setupView()
     }
     
     static func make(viewModel: PlanetDetailViewModel) -> PlanetDetailViewController? {
@@ -36,16 +31,11 @@ class PlanetDetailViewController: UIViewController {
         return viewController
     }
     
-    private func configureUI() {
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "CaviarDreams", size: 20)!]
-        titleLabel.text = "\(viewModel.title)'s sattelites"
-        rankinNumberLabel.text = "Rank in number sattelites"
-        rankingNumberLabel.text = "6"
-        thLabel.text = "th"
-        followedByLabel.text = "Followed by"
-        followedByPlanetLabel.text = "Earth"
+    private func setupView() {
+        rankView.position = 6
+        rankView.nextPlanet = "Earth"
     }
-    
+
     // MARK: - User Actions
     
     @IBAction func didTapOnCloseButton(_ sender: Any) {

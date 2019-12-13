@@ -105,7 +105,7 @@ extension PlanetsViewController: UICollectionViewDelegateFlowLayout {
 extension PlanetsViewController: FooterViewDelegate {
     
     func didTapSatelitesView(on view: FooterView) {
-        let index = indexOfMajorCell()
-        viewModel.didTapSattelitesView(at: index)
+//        let index = indexOfMajorCell()
+//        viewModel.didTapSattelitesView(at: index)
     }
 }
