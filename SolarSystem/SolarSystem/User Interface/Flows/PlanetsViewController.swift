@@ -29,8 +29,8 @@ final class PlanetsViewController: UIViewController {
         return viewController
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         let centerIndexPath = IndexPath(row: viewModel.planetCellViewModels.count / 2, section: 0)
         collectionView.scrollToItem(at: centerIndexPath, at: .centeredHorizontally, animated: true)
     }
@@ -49,12 +49,6 @@ final class PlanetsViewController: UIViewController {
         collectionView.dataSource = self
         
         footerView.delegate = self
-    }
-    
-    private func indexOfMajorCell() -> Int {
-        let proportionalOffset = (collectionView.collectionViewLayout.collectionView?.contentOffset.x ?? 0) / cellWidth
-        let index = Int(round(proportionalOffset))
-        return max(0, min(viewModel.planetCellViewModels.count - 1, index))
     }
 }
 
@@ -83,36 +77,11 @@ extension PlanetsViewController: UICollectionViewDataSource {
 // Note: UICollectionViewDelegate inherits from UIScrollViewDelegate.
 extension PlanetsViewController: UICollectionViewDelegate {
     
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        indexOfCellBeforeDragging = indexOfMajorCell()
-    }
-    
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        targetContentOffset.pointee = scrollView.contentOffset
-        
-        let majorCellBeforeDragging = indexOfMajorCell() == indexOfCellBeforeDragging
-        let hasEnoughVelocityToSlideToTheNextCell = indexOfCellBeforeDragging + 1 < viewModel.planetCellViewModels.count && velocity.x > 0.5
-        let hasEnoughVelocityToSlideToThePreviousCell = indexOfCellBeforeDragging >= 1 && velocity.x < -0.5
-        
-        let didUseSwipeToSkipCell = majorCellBeforeDragging && (hasEnoughVelocityToSlideToTheNextCell || hasEnoughVelocityToSlideToThePreviousCell)
-       
-        let index = indexOfMajorCell()
-        
-        if didUseSwipeToSkipCell {
-            let snapToIndex = indexOfCellBeforeDragging + (hasEnoughVelocityToSlideToTheNextCell ? 1 : -1)
-            let toValue = cellWidth * CGFloat(snapToIndex)
-            UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: velocity.x, options: .allowUserInteraction, animations: {
-                scrollView.contentOffset = CGPoint(x: toValue, y: 0)
-                scrollView.layoutIfNeeded()
-            }, completion: nil)
-        } else {
-            let indexPath = IndexPath(row: index, section: 0)
-            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-        }
-        
-        let selectedCell = collectionView.cellForItem(at: IndexPath(row: index, section: 0)) as? PlanetCollectionViewCell
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        let selectedCell = collectionView.cellForItem(at: indexPath) as? PlanetCollectionViewCell
         selectedCell?.changeAlpha(1)
-        
+    
         for ind in 0..<collectionView.numberOfItems(inSection: 0) {
             let cell = collectionView.cellForItem(at: IndexPath(row: ind, section: 0)) as? PlanetCollectionViewCell
             if cell != selectedCell {
