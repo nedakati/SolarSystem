@@ -33,21 +33,20 @@ final class PlanetsViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let centerIndexPath = IndexPath(row: viewModel.planetCellViewModels.count / 2, section: 0)
-        selectedCellIndexPath = centerIndexPath
-        collectionView.scrollToItem(at: centerIndexPath, at: .centeredHorizontally, animated: true)
+        self.collectionView.scrollToItem(at: self.selectedCellIndexPath, at: .centeredHorizontally, animated: true)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        
+        selectedCellIndexPath = IndexPath(row: viewModel.planetCellViewModels.count / 2, section: 0)
     }
     
     private func setupView() {
         navigationController?.setNavigationBarHidden(true, animated: true)
 
         collectionView.register(cellType: PlanetCollectionViewCell.self)
+        collectionView.alpha = 0
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -65,13 +64,15 @@ extension PlanetsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: PlanetCollectionViewCell.self)
         cell.viewModel = viewModel.planetCellViewModels[indexPath.row]
-        let centerIndexPath = IndexPath(row: viewModel.planetCellViewModels.count / 2, section: 0)
 
-        if !didLoad && indexPath == centerIndexPath {
-            cell.changeAlpha(1)
-            didLoad.toggle()
-        }
-        
+//        if !didLoad && indexPath == selectedCellIndexPath {
+//            didLoad.toggle()
+//            UIView.animate(withDuration: 0.5) {
+//                cell.changeAlpha(1)
+//                cell.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+//            }
+//        }
+
         return cell
     }
 }
@@ -83,14 +84,31 @@ extension PlanetsViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-        let selectedCell = collectionView.cellForItem(at: indexPath) as? PlanetCollectionViewCell
-        selectedCell?.changeAlpha(1)
+        guard let selectedCell = collectionView.cellForItem(at: indexPath) as? PlanetCollectionViewCell else { return }
+        UIView.animate(withDuration: 0.5) {
+            selectedCell.changeAlpha(1)
+            selectedCell.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+        }
         selectedCellIndexPath = indexPath
-    
+        
         for ind in 0..<collectionView.numberOfItems(inSection: 0) {
             let cell = collectionView.cellForItem(at: IndexPath(row: ind, section: 0)) as? PlanetCollectionViewCell
             if cell != selectedCell {
-                cell?.changeAlpha(0.7)
+                UIView.animate(withDuration: 0.5) {
+                    cell?.changeAlpha(0.7)
+                    cell?.transform = .identity
+                }
+            }
+        }
+    }
+
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        UIView.animate(withDuration: 0.5) {
+            self.collectionView.alpha = 1
+            guard let cell = self.collectionView.cellForItem(at: self.selectedCellIndexPath) as? PlanetCollectionViewCell else { return }
+            UIView.animate(withDuration: 0.5) {
+                cell.changeAlpha(1)
+                cell.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
             }
         }
     }
@@ -100,8 +118,8 @@ extension PlanetsViewController: UICollectionViewDelegate {
 
 extension PlanetsViewController: UICollectionViewDelegateFlowLayout {
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            CGSize(width: cellWidth, height: collectionView.bounds.size.height)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {        
+            return CGSize(width: cellWidth, height: collectionView.bounds.size.height)
     }
 }
 
