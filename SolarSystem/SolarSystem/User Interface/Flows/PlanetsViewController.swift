@@ -65,14 +65,6 @@ extension PlanetsViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: PlanetCollectionViewCell.self)
         cell.viewModel = viewModel.planetCellViewModels[indexPath.row]
 
-//        if !didLoad && indexPath == selectedCellIndexPath {
-//            didLoad.toggle()
-//            UIView.animate(withDuration: 0.5) {
-//                cell.changeAlpha(1)
-//                cell.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-//            }
-//        }
-
         return cell
     }
 }

@@ -15,6 +15,7 @@
 		A93185D7238441580089F633 /* PlanetsCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93185D6238441570089F633 /* PlanetsCollectionViewFlowLayout.swift */; };
 		A93185DA238446D50089F633 /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93185D9238446D50089F633 /* Planet.swift */; };
 		A93185DC238447D20089F633 /* PlanetCollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93185DB238447D20089F633 /* PlanetCollectionCellViewModel.swift */; };
+		A9B0E23523A54416000A0312 /* sanstaina.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9B0E23423A54416000A0312 /* sanstaina.ttf */; };
 		A9DAF0CD23843E9900185C50 /* PlanetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DAF0CB23843E9900185C50 /* PlanetCollectionViewCell.swift */; };
 		A9E117C62372C43B00DB2A7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E117C52372C43B00DB2A7A /* AppDelegate.swift */; };
 		A9E117CD2372C43B00DB2A7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E117CB2372C43B00DB2A7A /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 		A93185D6238441570089F633 /* PlanetsCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		A93185D9238446D50089F633 /* Planet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
 		A93185DB238447D20089F633 /* PlanetCollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetCollectionCellViewModel.swift; sourceTree = "<group>"; };
+		A9B0E23423A54416000A0312 /* sanstaina.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sanstaina.ttf; sourceTree = "<group>"; };
 		A9DAF0CB23843E9900185C50 /* PlanetCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanetCollectionViewCell.swift; sourceTree = "<group>"; };
 		A9E117C22372C43B00DB2A7A /* SolarSystem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SolarSystem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9E117C52372C43B00DB2A7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +91,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		A9B0E23323A543F5000A0312 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A9B0E23423A54416000A0312 /* sanstaina.ttf */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		A9DAF0CA23843E9900185C50 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +128,7 @@
 		A9E117C42372C43B00DB2A7A /* SolarSystem */ = {
 			isa = PBXGroup;
 			children = (
+				A9B0E23323A543F5000A0312 /* Resources */,
 				A93185D8238446C80089F633 /* Model */,
 				FD06C15C2375AFDE0089F7CC /* Decorator */,
 				FD06C1592375AEE60089F7CC /* Extensions */,
@@ -270,6 +281,7 @@
 				A9E117CF2372C43D00DB2A7A /* Assets.xcassets in Resources */,
 				FDF06F55237939370055FE78 /* FooterView.xib in Resources */,
 				FD0CD6E72384334A005F8958 /* PlanetDetailViewController.storyboard in Resources */,
+				A9B0E23523A54416000A0312 /* sanstaina.ttf in Resources */,
 				FDF06F5A23793D820055FE78 /* PlanetsViewController.storyboard in Resources */,
 				A9E117CD2372C43B00DB2A7A /* Main.storyboard in Resources */,
 			);
