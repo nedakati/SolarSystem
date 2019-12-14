@@ -28,7 +28,8 @@ class FlowController {
     private func firstScreen() -> UIViewController? {
         let planetsViewModel = PlanetsViewModelImpl()
         planetsViewModel.flowDelegate = self
-        return PlanetsViewController.make(with: planetsViewModel)
+        self.planetsViewController = PlanetsViewController.make(with: planetsViewModel)
+        return planetsViewController
     }
 }
 
@@ -38,6 +39,7 @@ extension FlowController: PlanetsFlowDelegate {
         let viewModel = PlanetDetailViewModelImpl(planet: planet)
         guard let viewController = PlanetDetailViewController.make(viewModel: viewModel) else { return }
         viewController.modalPresentationStyle = .fullScreen
+        viewController.transitioningDelegate = planetsViewController
         navigationController.present(viewController, animated: true, completion: nil)
     }
 }

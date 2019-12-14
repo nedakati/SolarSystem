@@ -20,6 +20,9 @@ class PlanetDetailViewController: UIViewController {
     @IBOutlet weak var followedByLabel: UILabel!
     @IBOutlet weak var followedByPlanetLabel: UILabel!
     
+    @IBOutlet weak var planetImageVire: UIImageView!
+    @IBOutlet weak var planetViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var planetView: UIView!
     
     private var viewModel: PlanetDetailViewModel!
     
@@ -28,6 +31,13 @@ class PlanetDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UIView.animate(withDuration: 1.2) {
+            self.planetImageVire.transform = CGAffineTransform(scaleX: 2.5, y: 2.5).translatedBy(x: 0.0, y: 250.0)
+        }
     }
     
     static func make(viewModel: PlanetDetailViewModel) -> PlanetDetailViewController? {
