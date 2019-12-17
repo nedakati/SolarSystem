@@ -20,32 +20,32 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bcy-Qf-mW8">
                     <rect key="frame" x="0.0" y="0.0" width="426" height="1"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="xts-f4-2dK"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rank in number sattelites" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qps-8c-81h">
-                    <rect key="frame" x="0.0" y="25" width="85.333333333333329" height="47"/>
+                    <rect key="frame" x="0.0" y="25" width="106.66666666666667" height="47"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Aj-LC-lPa">
-                    <rect key="frame" x="109.33333333333333" y="25" width="19.666666666666671" height="47"/>
+                    <rect key="frame" x="130.66666666666666" y="25" width="19.666666666666657" height="47"/>
                     <fontDescription key="fontDescription" type="system" pointSize="32"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="th" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Zs-v1-aZT">
-                    <rect key="frame" x="137" y="25" width="15.666666666666657" height="20.333333333333329"/>
+                    <rect key="frame" x="158.33333333333334" y="25" width="15.666666666666657" height="20.333333333333329"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z7R-W4-AI9">
-                    <rect key="frame" x="-430.33333333333331" y="96" width="856.33333333333337" height="1"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z7R-W4-AI9" userLabel="Second Separator">
+                    <rect key="frame" x="0.0" y="96" width="426" height="1"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="4Tm-ck-W9q"/>
                     </constraints>
@@ -72,7 +72,7 @@
             <constraints>
                 <constraint firstItem="qps-8c-81h" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="8Q9-HY-a2V"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="z7R-W4-AI9" secondAttribute="bottom" id="Ai5-mn-0Zd"/>
-                <constraint firstItem="qps-8c-81h" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.2" id="Kae-XO-MQS"/>
+                <constraint firstItem="qps-8c-81h" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.25" id="Kae-XO-MQS"/>
                 <constraint firstItem="1Aj-LC-lPa" firstAttribute="leading" secondItem="qps-8c-81h" secondAttribute="trailing" constant="24" id="PDW-uM-4Um"/>
                 <constraint firstItem="3ST-g7-8wa" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="24" id="PYA-XH-f3U"/>
                 <constraint firstItem="bcy-Qf-mW8" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="RpN-dl-0Kt"/>
@@ -87,7 +87,7 @@
                 <constraint firstItem="3Zs-v1-aZT" firstAttribute="top" secondItem="bcy-Qf-mW8" secondAttribute="bottom" constant="24" id="uWa-tc-fPE"/>
                 <constraint firstAttribute="bottom" secondItem="3ST-g7-8wa" secondAttribute="bottom" constant="24" id="wYA-f1-EAD"/>
                 <constraint firstItem="3ST-g7-8wa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3Zs-v1-aZT" secondAttribute="trailing" constant="24" id="yJv-9L-fQi"/>
-                <constraint firstItem="z7R-W4-AI9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="-430.33333333333337" id="yyh-iQ-yl4"/>
+                <constraint firstItem="z7R-W4-AI9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="yyh-iQ-yl4"/>
                 <constraint firstItem="3Zs-v1-aZT" firstAttribute="leading" secondItem="1Aj-LC-lPa" secondAttribute="trailing" constant="8" id="zrS-xI-KrE"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

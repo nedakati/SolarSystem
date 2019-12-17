@@ -38,6 +38,7 @@ extension FlowController: PlanetsFlowDelegate {
         let viewModel = PlanetDetailViewModelImpl(planet: planet)
         guard let viewController = PlanetDetailViewController.make(viewModel: viewModel) else { return }
         viewController.modalPresentationStyle = .fullScreen
+        viewController.modalTransitionStyle = .crossDissolve
         navigationController.present(viewController, animated: true, completion: nil)
     }
 }

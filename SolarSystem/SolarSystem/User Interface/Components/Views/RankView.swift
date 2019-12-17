@@ -26,8 +26,7 @@ final class RankView: UIView {
     
     var nextPlanet: String? {
         didSet {
-            guard let planet = nextPlanet else { return }
-            followedByPlanet.text = String(planet)
+            followedByPlanet.text = nextPlanet
         }
     }
     

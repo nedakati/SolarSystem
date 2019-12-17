@@ -37,23 +37,42 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UpF-Rb-Or0" userLabel="Rank View" customClass="RankView" customModule="SolarSystem" customModuleProvider="target">
-                                <rect key="frame" x="24" y="121" width="366" height="82"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <rect key="frame" x="24" y="121" width="366" height="100"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="7cC-jy-lXI"/>
+                                </constraints>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="iTg-2O-jTb" userLabel="Sattelites Stack View">
+                                <rect key="frame" x="24" y="253" width="366" height="245.5"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fPa-k9-jjc" customClass="SatteliteView" customModule="SolarSystem" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="171" height="245.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OdB-nT-NzU" customClass="SatteliteView" customModule="SolarSystem" customModuleProvider="target">
+                                        <rect key="frame" x="195" y="0.0" width="171" height="245.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="bdM-z2-h1W" firstAttribute="centerX" secondItem="F65-kT-O4k" secondAttribute="centerX" id="70c-Iu-MM5"/>
                             <constraint firstAttribute="bottom" secondItem="7LW-Ey-Tgc" secondAttribute="bottom" id="7jD-qG-JUs"/>
+                            <constraint firstItem="iTg-2O-jTb" firstAttribute="top" secondItem="UpF-Rb-Or0" secondAttribute="bottom" constant="32" id="MCd-yQ-Apv"/>
+                            <constraint firstItem="iTg-2O-jTb" firstAttribute="height" secondItem="oo8-8O-765" secondAttribute="height" multiplier="0.3" id="MNw-N8-GyR"/>
                             <constraint firstItem="6s3-p6-d0d" firstAttribute="leading" secondItem="oo8-8O-765" secondAttribute="leading" constant="24" id="OJL-6H-OFv"/>
                             <constraint firstItem="6s3-p6-d0d" firstAttribute="top" secondItem="oo8-8O-765" secondAttribute="top" constant="16" id="RRA-m7-wHf"/>
+                            <constraint firstItem="oo8-8O-765" firstAttribute="trailing" secondItem="iTg-2O-jTb" secondAttribute="trailing" constant="24" id="VYi-nx-Occ"/>
                             <constraint firstItem="7LW-Ey-Tgc" firstAttribute="leading" secondItem="oo8-8O-765" secondAttribute="leading" id="WNd-zD-rCN"/>
                             <constraint firstItem="oo8-8O-765" firstAttribute="trailing" secondItem="7LW-Ey-Tgc" secondAttribute="trailing" id="XBB-Oi-Vr4"/>
                             <constraint firstItem="oo8-8O-765" firstAttribute="trailing" secondItem="UpF-Rb-Or0" secondAttribute="trailing" constant="24" id="ZCF-7z-Am8"/>
-                            <constraint firstItem="UpF-Rb-Or0" firstAttribute="height" secondItem="oo8-8O-765" secondAttribute="height" multiplier="0.1" priority="999" id="aVc-Dx-BnB"/>
                             <constraint firstItem="bdM-z2-h1W" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6s3-p6-d0d" secondAttribute="trailing" constant="8" id="fXC-gI-OjW"/>
                             <constraint firstItem="7LW-Ey-Tgc" firstAttribute="top" secondItem="F65-kT-O4k" secondAttribute="top" id="hBo-FS-4a3"/>
                             <constraint firstItem="UpF-Rb-Or0" firstAttribute="leading" secondItem="oo8-8O-765" secondAttribute="leading" constant="24" id="ldF-91-cZd"/>
+                            <constraint firstItem="iTg-2O-jTb" firstAttribute="leading" secondItem="oo8-8O-765" secondAttribute="leading" constant="24" id="mW3-sA-iku"/>
                             <constraint firstItem="bdM-z2-h1W" firstAttribute="top" secondItem="oo8-8O-765" secondAttribute="top" constant="16" id="nkz-h8-swW"/>
                             <constraint firstItem="UpF-Rb-Or0" firstAttribute="top" secondItem="bdM-z2-h1W" secondAttribute="bottom" constant="32" id="w0L-KT-Tpx"/>
                         </constraints>
@@ -61,7 +80,10 @@
                     </view>
                     <connections>
                         <outlet property="closeButton" destination="6s3-p6-d0d" id="j77-kn-i1x"/>
+                        <outlet property="firstSatteliteView" destination="fPa-k9-jjc" id="kbj-k1-igY"/>
                         <outlet property="rankView" destination="UpF-Rb-Or0" id="ZvQ-6q-bUp"/>
+                        <outlet property="sattelitesStackView" destination="iTg-2O-jTb" id="uDw-aY-Wrb"/>
+                        <outlet property="secondSatteliteView" destination="OdB-nT-NzU" id="DmE-Hd-CuZ"/>
                         <outlet property="titleLabel" destination="bdM-z2-h1W" id="YVQ-he-g5a"/>
                     </connections>
                 </viewController>
