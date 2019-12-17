@@ -8,3 +8,5 @@ Custom transitions:
  
  * https://www.raywenderlich.com/2925473-ios-animation-tutorial-custom-view-controller-presentation-transitions
  
+Use this custom font:
+ * sanstaina - you can find it on Interface Builder as well
