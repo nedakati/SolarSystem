@@ -12,32 +12,25 @@ class PlanetDetailViewController: UIViewController {
 
     // MARK: - Outlets
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var closeButton: UIButton!
-    @IBOutlet weak var rankinNumberLabel: UILabel!
-    @IBOutlet weak var rankingNumberLabel: UILabel!
-    @IBOutlet weak var thLabel: UILabel!
-    @IBOutlet weak var followedByLabel: UILabel!
-    @IBOutlet weak var followedByPlanetLabel: UILabel!
-    
-    @IBOutlet weak var planetImageVire: UIImageView!
-    @IBOutlet weak var planetViewTopConstraint: NSLayoutConstraint!
-    @IBOutlet weak var planetView: UIView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var closeButton: UIButton!
+    @IBOutlet private weak var rankView: RankView!
+    @IBOutlet private weak var sattelitesStackView: UIStackView!
+    @IBOutlet private weak var firstSatteliteView: SatteliteView!
+    @IBOutlet private weak var secondSatteliteView: SatteliteView!
     
     private var viewModel: PlanetDetailViewModel!
     
     // MARK: - Lifecycle
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configureUI()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        animateAppearance()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        UIView.animate(withDuration: 1.2) {
-            self.planetImageVire.transform = CGAffineTransform(scaleX: 2.5, y: 2.5).translatedBy(x: 0.0, y: 250.0)
-        }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupView()
     }
     
     static func make(viewModel: PlanetDetailViewModel) -> PlanetDetailViewController? {
@@ -46,16 +39,52 @@ class PlanetDetailViewController: UIViewController {
         return viewController
     }
     
-    private func configureUI() {
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "CaviarDreams", size: 20)!]
-        titleLabel.text = "\(viewModel.title)'s sattelites"
-        rankinNumberLabel.text = "Rank in number sattelites"
-        rankingNumberLabel.text = "6"
-        thLabel.text = "th"
-        followedByLabel.text = "Followed by"
-        followedByPlanetLabel.text = "Earth"
+    private func setupView() {
+        closeButton.alpha = 0
+        titleLabel.alpha = 0
+        rankView.alpha = 0
+        sattelitesStackView.alpha = 0
+        
+        titleLabel.text = "Mars' sattelites"
+        rankView.position = 6
+        rankView.nextPlanet = "Earth"
+        firstSatteliteView.title = "Deimos"
+        secondSatteliteView.title = "Phobos"
     }
     
+    private func animateAppearance() {
+        let titleOffset = CGPoint(x: 0, y: -titleLabel.frame.maxY)
+        let rankOffset = CGPoint(x: 0, y: -rankView.frame.maxY)
+        titleLabel.transform = CGAffineTransform(translationX: titleOffset.x, y: titleOffset.y)
+        closeButton.transform = CGAffineTransform(translationX: titleOffset.x, y: titleOffset.y)
+        rankView.transform = CGAffineTransform(translationX: rankOffset.x, y: rankOffset.y)
+
+        UIView.animate(withDuration: 0.33, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.titleLabel.transform = .identity
+            self.closeButton.transform = .identity
+            
+            self.titleLabel.alpha = 1
+            self.closeButton.alpha = 1
+        }, completion: { completed in
+            if completed {
+                UIView.animate(withDuration: 0.33, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+                    self.rankView.transform = .identity
+                    self.rankView.alpha = 1
+                }, completion: { completed in
+                    if completed {
+                        UIView.animate(withDuration: 0.33, delay: 0, options: .curveEaseIn, animations: {
+                            self.sattelitesStackView.alpha = 1
+                        })
+                    }
+                })
+            }
+        })
+    }
+    
+    private func animateDissapearance() {
+        
+    }
+
     // MARK: - User Actions
     
     @IBAction func didTapOnCloseButton(_ sender: Any) {

@@ -13,6 +13,12 @@ class SatteliteView: UIView, NibRepresentable {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
+    var title: String? {
+        didSet {
+            titleLabel.text = title 
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadNib()
@@ -30,5 +36,4 @@ class SatteliteView: UIView, NibRepresentable {
         layer.borderWidth = 1
         layer.cornerRadius = 10
     }
-
 }
