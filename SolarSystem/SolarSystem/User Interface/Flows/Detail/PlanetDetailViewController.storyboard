@@ -56,20 +56,41 @@
                                     </view>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1sD-xm-Gmd">
+                                <rect key="frame" x="0.0" y="44" width="414" height="572.5"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mars" translatesAutoresizingMaskIntoConstraints="NO" id="nKk-zf-b2a">
+                                        <rect key="frame" x="82" y="161.5" width="250" height="250"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="250" id="AOY-uk-wz9"/>
+                                            <constraint firstAttribute="width" constant="250" id="vtj-2b-rYB"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="nKk-zf-b2a" firstAttribute="centerY" secondItem="1sD-xm-Gmd" secondAttribute="centerY" id="fdL-Mq-fN4"/>
+                                    <constraint firstItem="nKk-zf-b2a" firstAttribute="centerX" secondItem="1sD-xm-Gmd" secondAttribute="centerX" id="yoh-1c-P54"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="bdM-z2-h1W" firstAttribute="centerX" secondItem="F65-kT-O4k" secondAttribute="centerX" id="70c-Iu-MM5"/>
                             <constraint firstAttribute="bottom" secondItem="7LW-Ey-Tgc" secondAttribute="bottom" id="7jD-qG-JUs"/>
+                            <constraint firstItem="1sD-xm-Gmd" firstAttribute="leading" secondItem="oo8-8O-765" secondAttribute="leading" id="9RT-Da-XR9"/>
                             <constraint firstItem="iTg-2O-jTb" firstAttribute="top" secondItem="UpF-Rb-Or0" secondAttribute="bottom" constant="32" id="MCd-yQ-Apv"/>
                             <constraint firstItem="iTg-2O-jTb" firstAttribute="height" secondItem="oo8-8O-765" secondAttribute="height" multiplier="0.3" id="MNw-N8-GyR"/>
                             <constraint firstItem="6s3-p6-d0d" firstAttribute="leading" secondItem="oo8-8O-765" secondAttribute="leading" constant="24" id="OJL-6H-OFv"/>
+                            <constraint firstItem="1sD-xm-Gmd" firstAttribute="height" secondItem="oo8-8O-765" secondAttribute="height" multiplier="0.7" id="Omo-cB-ShA"/>
                             <constraint firstItem="6s3-p6-d0d" firstAttribute="top" secondItem="oo8-8O-765" secondAttribute="top" constant="16" id="RRA-m7-wHf"/>
                             <constraint firstItem="oo8-8O-765" firstAttribute="trailing" secondItem="iTg-2O-jTb" secondAttribute="trailing" constant="24" id="VYi-nx-Occ"/>
                             <constraint firstItem="7LW-Ey-Tgc" firstAttribute="leading" secondItem="oo8-8O-765" secondAttribute="leading" id="WNd-zD-rCN"/>
                             <constraint firstItem="oo8-8O-765" firstAttribute="trailing" secondItem="7LW-Ey-Tgc" secondAttribute="trailing" id="XBB-Oi-Vr4"/>
+                            <constraint firstItem="1sD-xm-Gmd" firstAttribute="top" secondItem="oo8-8O-765" secondAttribute="top" id="YJY-OT-Qoy"/>
                             <constraint firstItem="oo8-8O-765" firstAttribute="trailing" secondItem="UpF-Rb-Or0" secondAttribute="trailing" constant="24" id="ZCF-7z-Am8"/>
                             <constraint firstItem="bdM-z2-h1W" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6s3-p6-d0d" secondAttribute="trailing" constant="8" id="fXC-gI-OjW"/>
+                            <constraint firstItem="oo8-8O-765" firstAttribute="trailing" secondItem="1sD-xm-Gmd" secondAttribute="trailing" id="fky-DG-Qu6"/>
                             <constraint firstItem="7LW-Ey-Tgc" firstAttribute="top" secondItem="F65-kT-O4k" secondAttribute="top" id="hBo-FS-4a3"/>
                             <constraint firstItem="UpF-Rb-Or0" firstAttribute="leading" secondItem="oo8-8O-765" secondAttribute="leading" constant="24" id="ldF-91-cZd"/>
                             <constraint firstItem="iTg-2O-jTb" firstAttribute="leading" secondItem="oo8-8O-765" secondAttribute="leading" constant="24" id="mW3-sA-iku"/>
@@ -81,6 +102,7 @@
                     <connections>
                         <outlet property="closeButton" destination="6s3-p6-d0d" id="j77-kn-i1x"/>
                         <outlet property="firstSatteliteView" destination="fPa-k9-jjc" id="kbj-k1-igY"/>
+                        <outlet property="planetImageView" destination="nKk-zf-b2a" id="I4s-7i-zGP"/>
                         <outlet property="rankView" destination="UpF-Rb-Or0" id="ZvQ-6q-bUp"/>
                         <outlet property="sattelitesStackView" destination="iTg-2O-jTb" id="uDw-aY-Wrb"/>
                         <outlet property="secondSatteliteView" destination="OdB-nT-NzU" id="DmE-Hd-CuZ"/>
@@ -93,6 +115,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Mars" width="512" height="512"/>
         <image name="close" width="948" height="980"/>
         <image name="space_1" width="1080" height="1920"/>
     </resources>

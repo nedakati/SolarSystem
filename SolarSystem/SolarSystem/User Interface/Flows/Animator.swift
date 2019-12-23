@@ -54,7 +54,6 @@ class Animator: NSObject, UIViewControllerAnimatedTransitioning {
         let scaleTransform = CGAffineTransform(scaleX: xScaleFactor, y: yScaleFactor)
         
         if isPresenting {
-          planetView.transform = scaleTransform
           planetView.center = CGPoint(x: initialFrame.midX, y: initialFrame.midY)
           planetView.clipsToBounds = true
         }
@@ -66,7 +65,7 @@ class Animator: NSObject, UIViewControllerAnimatedTransitioning {
         containerView.bringSubviewToFront(planetView)
 
         UIView.animate(withDuration: duration, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: 1, animations: {
-            planetView.transform = self.isPresenting ? .identity : scaleTransform
+//            planetView.transform = self.isPresenting ? .identity : scaleTransform
             planetView.center = CGPoint(x: finalFrame.midX, y: finalFrame.midY)
             planetView.layer.cornerRadius = !self.isPresenting ? 20.0 : 0.0
           }, completion: { _ in

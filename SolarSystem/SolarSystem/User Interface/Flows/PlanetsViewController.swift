@@ -40,9 +40,10 @@ final class PlanetsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        footerView.isHidden = false
-        collectionView.isHidden = false
-//        self.collectionView.scrollToItem(at: self.selectedCellIndexPath, at: .centeredHorizontally, animated: true)
+        UIView.animate(withDuration: 0.2, animations: {
+            self.footerView.alpha = 1
+        })
+//        collectionView.isHidden = false
     }
     
     override func viewDidLoad() {
@@ -129,14 +130,11 @@ extension PlanetsViewController: UICollectionViewDelegateFlowLayout {
 extension PlanetsViewController: FooterViewDelegate {
     
     func didTapSatelitesView(on view: FooterView) {
-        footerView.isHidden = true
-//        UIView.animate(withDuration: 0.2, animations: {
-//            guard let selectedCell = self.collectionView.cellForItem(at: self.selectedCellIndexPath) as? PlanetCollectionViewCell else { return }
-//            selectedCell.transform = CGAffineTransform(scaleX: 2.5, y: 2.5)
-//        }) { _ in
+        UIView.animate(withDuration: 0.4, animations: {
+            self.footerView.alpha = 0
+        }) { _ in
             self.viewModel.didTapSattelitesView(at: self.selectedCellIndexPath.row)
-//        }
-        
+        }
     }
 }
 
@@ -145,15 +143,9 @@ extension PlanetsViewController: UIViewControllerTransitioningDelegate {
     // return a custom transition
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
-        guard let selectedCell = collectionView.cellForItem(at: selectedCellIndexPath) as? PlanetCollectionViewCell, let selectedCellSuperview = selectedCell.superview else { return nil }
+       // guard let selectedCell = collectionView.cellForItem(at: selectedCellIndexPath) as? PlanetCollectionViewCell, let selectedCellSuperview = selectedCell.superview else { return nil }
         
-        animator.originFrameOfPlanet = selectedCellSuperview.convert(selectedCell.frame, to: nil)
-//        animator.originFrameOfPlanet = CGRect(
-//          x: animator.originFrameOfPlanet.origin.x + 20,
-//          y: animator.originFrameOfPlanet.origin.y + 20,
-//          width: animator.originFrameOfPlanet.size.width - 40,
-//          height: animator.originFrameOfPlanet.size.height - 40
-//        )
+        animator.originFrameOfPlanet = view.frame
         
         animator.isPresenting = true
         collectionView.isHidden = true

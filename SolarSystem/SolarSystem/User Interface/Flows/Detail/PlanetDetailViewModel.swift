@@ -10,13 +10,13 @@ import Foundation
 
 protocol PlanetDetailViewModel {
     var title: String { get }
+    var planet: Planet { get }
 }
 
 class PlanetDetailViewModelImpl: PlanetDetailViewModel {
     
-    var title: String
-    
-    private let planet: Planet
+    let title: String
+    let planet: Planet
     
     init(planet: Planet) {
         self.planet = planet

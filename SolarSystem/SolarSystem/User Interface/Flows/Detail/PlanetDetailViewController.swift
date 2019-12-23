@@ -18,10 +18,18 @@ class PlanetDetailViewController: UIViewController {
     @IBOutlet private weak var sattelitesStackView: UIStackView!
     @IBOutlet private weak var firstSatteliteView: SatteliteView!
     @IBOutlet private weak var secondSatteliteView: SatteliteView!
-    
+    @IBOutlet weak var planetImageView: UIImageView!
+
     private var viewModel: PlanetDetailViewModel!
     
     // MARK: - Lifecycle
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+            UIView.animate(withDuration: 1.2) {
+            self.planetImageView.transform = CGAffineTransform(scaleX: 2.5, y: 2.5).translatedBy(x: 0.0, y: 200.0)
+        }
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -30,6 +38,7 @@ class PlanetDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        planetImageView.image = viewModel.planet.image
         setupView()
     }
     
