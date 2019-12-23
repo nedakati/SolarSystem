@@ -26,16 +26,13 @@ class PlanetDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-            UIView.animate(withDuration: 1.2) {
-            self.planetImageView.transform = CGAffineTransform(scaleX: 2.5, y: 2.5).translatedBy(x: 0.0, y: 200.0)
+        UIView.animate(withDuration: 1.2, animations: {
+            self.planetImageView.transform = CGAffineTransform(scaleX: 2.5, y: 2.5).translatedBy(x: 0.0, y: 240.0)
+        }) { _ in
+            self.animateAppearance()
         }
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        animateAppearance()
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         planetImageView.image = viewModel.planet.image
@@ -97,6 +94,14 @@ class PlanetDetailViewController: UIViewController {
     // MARK: - User Actions
     
     @IBAction func didTapOnCloseButton(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        UIView.animate(withDuration: 1.2, animations: {
+            self.closeButton.alpha = 0
+            self.titleLabel.alpha = 0
+            self.rankView.alpha = 0
+            self.sattelitesStackView.alpha = 0
+            self.planetImageView.transform = .identity
+        }) { _ in
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 }

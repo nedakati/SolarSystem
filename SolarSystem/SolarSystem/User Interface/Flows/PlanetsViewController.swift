@@ -20,7 +20,7 @@ final class PlanetsViewController: UIViewController {
     private var didLoad = false
     
     private let animator = Animator()
-    
+        
     // MARK: - Private properties
     
     private var viewModel: PlanetsViewModel!
@@ -35,7 +35,10 @@ final class PlanetsViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.collectionView.scrollToItem(at: self.selectedCellIndexPath, at: .centeredHorizontally, animated: true)
+        if !didLoad {
+            self.collectionView.scrollToItem(at: self.selectedCellIndexPath, at: .centeredHorizontally, animated: true)
+            didLoad.toggle()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,7 +46,9 @@ final class PlanetsViewController: UIViewController {
         UIView.animate(withDuration: 0.2, animations: {
             self.footerView.alpha = 1
         })
-//        collectionView.isHidden = false
+        if didLoad {
+            self.collectionView.scrollToItem(at: self.selectedCellIndexPath, at: .centeredHorizontally, animated: true)
+        }
     }
     
     override func viewDidLoad() {
@@ -59,7 +64,7 @@ final class PlanetsViewController: UIViewController {
         collectionView.alpha = 0
         collectionView.delegate = self
         collectionView.dataSource = self
-        
+
         footerView.delegate = self
     }
 }
@@ -142,17 +147,16 @@ extension PlanetsViewController: UIViewControllerTransitioningDelegate {
     
     // return a custom transition
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        
-       // guard let selectedCell = collectionView.cellForItem(at: selectedCellIndexPath) as? PlanetCollectionViewCell, let selectedCellSuperview = selectedCell.superview else { return nil }
-        
-        animator.originFrameOfPlanet = view.frame
-        
+            
+        guard let attributes = collectionView.layoutAttributesForItem(at: selectedCellIndexPath) else { return animator }
+        let cellFrameInSuperview = collectionView.convert(attributes.frame, to: collectionView.superview)
+        animator.originFrameOfPlanet = cellFrameInSuperview //view.frame
         animator.isPresenting = true
-        collectionView.isHidden = true
         return animator
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-      return nil
+      animator.isPresenting = false
+      return animator
     }
 }

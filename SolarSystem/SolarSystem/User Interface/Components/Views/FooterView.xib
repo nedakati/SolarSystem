@@ -20,27 +20,29 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="M5g-El-10C">
-                    <rect key="frame" x="24" y="0.0" width="443" height="289"/>
+                    <rect key="frame" x="24" y="189" width="443" height="100"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="69d-Vd-DGk" customClass="InfoView" customModule="SolarSystem" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="137" height="289"/>
+                            <rect key="frame" x="0.0" y="0.0" width="137" height="100"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="abn-1Z-Gwx" customClass="InfoView" customModule="SolarSystem" customModuleProvider="target">
-                            <rect key="frame" x="153" y="0.0" width="137" height="289"/>
+                            <rect key="frame" x="153" y="0.0" width="137" height="100"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LMw-EQ-yEV" customClass="InfoView" customModule="SolarSystem" customModuleProvider="target">
-                            <rect key="frame" x="306" y="0.0" width="137" height="289"/>
+                            <rect key="frame" x="306" y="0.0" width="137" height="100"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                     </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="ICm-fz-fxu"/>
+                    </constraints>
                 </stackView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="M5g-El-10C" secondAttribute="bottom" constant="32" id="6Mk-kl-uCO"/>
-                <constraint firstItem="M5g-El-10C" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="E00-Bn-ES5"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="M5g-El-10C" secondAttribute="bottom" constant="32" id="H0J-Io-uEs"/>
                 <constraint firstItem="M5g-El-10C" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="IDh-ym-Qk9"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="M5g-El-10C" secondAttribute="trailing" constant="24" id="hW5-73-vbk"/>
             </constraints>

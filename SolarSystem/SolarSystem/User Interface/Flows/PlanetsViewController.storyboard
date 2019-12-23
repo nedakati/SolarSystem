@@ -20,7 +20,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YFG-DQ-67G">
-                                <rect key="frame" x="0.0" y="94" width="414" height="522.5"/>
+                                <rect key="frame" x="0.0" y="94" width="414" height="572.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nkq-k0-30X" customClass="PlanetsCollectionViewFlowLayout" customModule="SolarSystem" customModuleProvider="target">
                                     <size key="itemSize" width="50" height="50"/>
@@ -31,15 +31,16 @@
                                 <cells/>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6CV-b9-aqb" userLabel="Footer View" customClass="FooterView" customModule="SolarSystem" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="616.5" width="414" height="245.5"/>
+                                <rect key="frame" x="0.0" y="666.5" width="414" height="195.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="6CV-b9-aqb" firstAttribute="height" secondItem="QdL-t1-HiM" secondAttribute="height" multiplier="0.3" placeholder="YES" id="J1R-wK-0bo"/>
                             <constraint firstItem="YFG-DQ-67G" firstAttribute="leading" secondItem="QdL-t1-HiM" secondAttribute="leading" id="Mww-Z3-LQy"/>
                             <constraint firstItem="YFG-DQ-67G" firstAttribute="trailing" secondItem="QdL-t1-HiM" secondAttribute="trailing" id="f0e-2N-Edp"/>
                             <constraint firstItem="YFG-DQ-67G" firstAttribute="top" secondItem="QdL-t1-HiM" secondAttribute="top" constant="50" id="fQ5-jH-trE"/>
+                            <constraint firstItem="YFG-DQ-67G" firstAttribute="height" secondItem="QdL-t1-HiM" secondAttribute="height" multiplier="0.7" id="hWa-fU-Dgj"/>
                             <constraint firstItem="QdL-t1-HiM" firstAttribute="bottom" secondItem="6CV-b9-aqb" secondAttribute="bottom" id="lVp-oJ-Lvr"/>
                             <constraint firstItem="6CV-b9-aqb" firstAttribute="leading" secondItem="QdL-t1-HiM" secondAttribute="leading" id="rI7-Bc-MmK"/>
                             <constraint firstItem="QdL-t1-HiM" firstAttribute="trailing" secondItem="6CV-b9-aqb" secondAttribute="trailing" id="s2H-ct-DKN"/>

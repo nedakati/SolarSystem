@@ -14,7 +14,7 @@ class Animator: NSObject, UIViewControllerAnimatedTransitioning {
     
     // MARK: - Properties
     
-    let duration = 5.0
+    let duration = 3.0
     
     /**
      Tell the animator whether it is presenting or dismissing a view controller.
@@ -29,7 +29,7 @@ class Animator: NSObject, UIViewControllerAnimatedTransitioning {
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval { duration }
     
     /**
-     transitionContext:  gives access to the parameters and view controllersof the transition.
+     transitionContext:  gives access to the parameters and view controllers of the transition.
      */
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
@@ -44,9 +44,9 @@ class Animator: NSObject, UIViewControllerAnimatedTransitioning {
         - when dismissed, it will shrink to the image’s original frame.
         */
         let planetView = isPresenting ? toView : transitionContext.view(forKey: .from)!
-        
-        let initialFrame = isPresenting ? originFrameOfPlanet : planetView.frame
-        let finalFrame = isPresenting ? planetView.frame : originFrameOfPlanet
+
+        let initialFrame = isPresenting ? UIScreen.main.bounds : planetView.frame
+        let finalFrame = isPresenting ? planetView.frame : UIScreen.main.bounds
 
         // grow/shrink the view
         let xScaleFactor = isPresenting ? initialFrame.width / finalFrame.width : finalFrame.width / initialFrame.width
@@ -54,20 +54,18 @@ class Animator: NSObject, UIViewControllerAnimatedTransitioning {
         let scaleTransform = CGAffineTransform(scaleX: xScaleFactor, y: yScaleFactor)
         
         if isPresenting {
-          planetView.center = CGPoint(x: initialFrame.midX, y: initialFrame.midY)
-          planetView.clipsToBounds = true
+            planetView.transform = scaleTransform
+            planetView.center = CGPoint(x: initialFrame.midX, y: initialFrame.midY)
+            planetView.clipsToBounds = true
         }
-
-        planetView.layer.cornerRadius = isPresenting ? 20.0 : 0.0
-        planetView.layer.masksToBounds = true
 
         containerView.addSubview(toView)
         containerView.bringSubviewToFront(planetView)
 
         UIView.animate(withDuration: duration, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: 1, animations: {
-//            planetView.transform = self.isPresenting ? .identity : scaleTransform
+            planetView.transform = self.isPresenting ? .identity : scaleTransform
             planetView.center = CGPoint(x: finalFrame.midX, y: finalFrame.midY)
-            planetView.layer.cornerRadius = !self.isPresenting ? 20.0 : 0.0
+//            planetView.layer.cornerRadius = !self.isPresenting ? 20.0 : 0.0
           }, completion: { _ in
             // transition animations are done and that UIKit is free to wrap up the view controller transition:
             transitionContext.completeTransition(true)
