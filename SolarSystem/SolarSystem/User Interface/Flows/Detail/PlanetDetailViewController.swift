@@ -88,20 +88,40 @@ class PlanetDetailViewController: UIViewController {
     }
     
     private func animateDissapearance() {
-        
+        let titleOffset = CGPoint(x: 0, y: -titleLabel.frame.maxY / 3)
+        let rankOffset = CGPoint(x: 0, y: -rankView.frame.maxY / 3)
+        let sattelitesOffset = CGPoint(x: 0, y: -sattelitesStackView.frame.maxY / 3)
+        UIView.animate(withDuration: 0.20, delay: 0, options: .curveEaseOut, animations: {
+            self.titleLabel.transform = CGAffineTransform(translationX: titleOffset.x, y: titleOffset.y)
+            self.closeButton.transform = CGAffineTransform(translationX: titleOffset.x, y: titleOffset.y)
+            self.titleLabel.alpha = 0
+            self.closeButton.alpha = 0
+        }, completion: { completed in
+            if completed {
+                UIView.animate(withDuration: 0.20, delay: 0, options: .curveEaseOut, animations: {
+                    self.rankView.transform = CGAffineTransform(translationX: rankOffset.x, y: rankOffset.y)
+                    self.rankView.alpha = 0
+                }, completion: { completed in
+                    UIView.animate(withDuration: 0.15, delay: 0, options: .curveEaseOut, animations: {
+                        self.sattelitesStackView.transform = CGAffineTransform(translationX: sattelitesOffset.x, y: sattelitesOffset.y)
+                        self.sattelitesStackView.alpha = 0
+                    }, completion: { completed in
+                        if completed {
+                            UIView.animate(withDuration: 0.5, animations: {
+                                self.planetImageView.transform = .identity
+                            }, completion: { _ in
+                                self.dismiss(animated: true, completion: nil)
+                            })
+                        }
+                    })
+                })
+            }
+        })
     }
 
     // MARK: - User Actions
     
     @IBAction func didTapOnCloseButton(_ sender: Any) {
-        UIView.animate(withDuration: 1.2, animations: {
-            self.closeButton.alpha = 0
-            self.titleLabel.alpha = 0
-            self.rankView.alpha = 0
-            self.sattelitesStackView.alpha = 0
-            self.planetImageView.transform = .identity
-        }) { _ in
-            self.dismiss(animated: true, completion: nil)
-        }
+        animateDissapearance()
     }
 }
